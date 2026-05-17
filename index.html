@@ -1,0 +1,2161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Google Universe • Ultra Premium AI Experience</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   RESET
+========================================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#050816;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* =========================================
+   CUSTOM SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar{
+  width:10px;
+}
+
+::-webkit-scrollbar-track{
+  background:#050816;
+}
+
+::-webkit-scrollbar-thumb{
+  border-radius:20px;
+
+  background:
+  linear-gradient(
+    #4285F4,
+    #EA4335,
+    #FBBC05,
+    #34A853
+  );
+}
+
+/* =========================================
+   LOADER
+========================================= */
+
+.loader{
+  position:fixed;
+  inset:0;
+  background:#050816;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999999;
+  transition:1s;
+}
+
+.loader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader h1{
+
+  font-size:70px;
+  font-weight:900;
+
+  background:
+  linear-gradient(
+    90deg,
+    #4285F4,
+    #EA4335,
+    #FBBC05,
+    #34A853
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:pulse 2s infinite;
+
+}
+
+@keyframes pulse{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.04);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+
+}
+
+/* =========================================
+   CURSOR GLOW
+========================================= */
+
+.cursor-glow{
+  position:fixed;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+
+  background:
+  radial-gradient(
+    circle,
+    rgba(66,133,244,0.18),
+    transparent 70%
+  );
+
+  pointer-events:none;
+  z-index:-1;
+  filter:blur(10px);
+
+  will-change:transform;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.background{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  z-index:-10;
+}
+
+.circle{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.35;
+  will-change:transform;
+}
+
+.circle1{
+  width:420px;
+  height:420px;
+  background:#4285F4;
+  top:-120px;
+  left:-100px;
+}
+
+.circle2{
+  width:380px;
+  height:380px;
+  background:#EA4335;
+  bottom:-150px;
+  right:-120px;
+}
+
+.circle3{
+  width:320px;
+  height:320px;
+  background:#34A853;
+  top:40%;
+  left:45%;
+}
+
+.circle4{
+  width:260px;
+  height:260px;
+  background:#FBBC05;
+  top:70%;
+  left:10%;
+}
+
+body::before{
+
+  content:'';
+  position:fixed;
+  inset:0;
+
+  background-image:
+  linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+  background-size:60px 60px;
+
+  z-index:-5;
+
+}
+
+/* =========================================
+   NAVBAR
+========================================= */
+
+nav{
+
+  width:100%;
+  padding:22px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  position:fixed;
+  top:0;
+  z-index:1000;
+
+  backdrop-filter:blur(30px);
+
+  background:
+  rgba(5,8,22,0.55);
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.06);
+
+}
+
+.logo{
+  font-size:34px;
+  font-weight:900;
+}
+
+.logo span:nth-child(1){color:#4285F4;}
+.logo span:nth-child(2){color:#EA4335;}
+.logo span:nth-child(3){color:#FBBC05;}
+.logo span:nth-child(4){color:#34A853;}
+
+nav ul{
+  display:flex;
+  gap:35px;
+  list-style:none;
+}
+
+nav ul li a{
+
+  text-decoration:none;
+  color:#d6d6d6;
+  position:relative;
+  transition:0.3s;
+
+}
+
+nav ul li a:hover{
+  color:white;
+}
+
+nav ul li a::after{
+
+  content:'';
+  position:absolute;
+  left:0;
+  bottom:-8px;
+
+  width:0%;
+  height:2px;
+
+  background:#4285F4;
+
+  transition:0.3s;
+
+}
+
+nav ul li a:hover::after{
+  width:100%;
+}
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+
+  min-height:100vh;
+  padding:180px 8% 100px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+
+}
+
+.hero-badge{
+
+  padding:12px 24px;
+  border-radius:999px;
+
+  background:rgba(255,255,255,0.07);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  margin-bottom:35px;
+
+  color:#cfcfcf;
+
+  animation:fadeUp 1s ease;
+
+}
+
+.hero h1{
+
+  font-size:95px;
+  line-height:1.1;
+  max-width:1200px;
+
+}
+
+.gradient-text{
+
+  background:
+  linear-gradient(
+    90deg,
+    #4285F4,
+    #EA4335,
+    #FBBC05,
+    #34A853
+  );
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+}
+
+.hero p{
+
+  margin-top:35px;
+  max-width:900px;
+
+  font-size:20px;
+  line-height:1.9;
+
+  color:#bdbdbd;
+
+}
+
+.hero-buttons{
+
+  margin-top:45px;
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.primary-btn,
+.secondary-btn{
+
+  padding:18px 34px;
+  border-radius:18px;
+  text-decoration:none;
+
+  transition:0.4s;
+
+  position:relative;
+  overflow:hidden;
+
+  backdrop-filter:blur(20px);
+
+}
+
+.primary-btn{
+
+  background:
+  linear-gradient(
+    90deg,
+    #4285F4,
+    #34A853
+  );
+
+  color:white;
+  font-weight:600;
+
+  box-shadow:
+  0 10px 30px rgba(66,133,244,0.25);
+
+}
+
+.primary-btn:hover{
+
+  transform:
+  translateY(-5px)
+  scale(1.04);
+
+}
+
+.secondary-btn{
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  1px solid rgba(255,255,255,0.1);
+
+  color:white;
+
+}
+
+.secondary-btn:hover{
+
+  transform:
+  translateY(-5px);
+
+  background:
+  rgba(255,255,255,0.08);
+
+}
+
+/* =========================================
+   SEARCH BOX
+========================================= */
+
+.search-box{
+
+  margin-top:50px;
+  width:100%;
+  max-width:850px;
+
+  background:
+  rgba(255,255,255,0.06);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:24px;
+
+  padding:24px 28px;
+
+  backdrop-filter:blur(25px);
+
+  display:flex;
+  align-items:center;
+
+  transition:0.4s;
+
+}
+
+.search-box:hover{
+
+  box-shadow:
+  0 0 40px rgba(66,133,244,0.2);
+
+}
+
+.search-box input{
+
+  width:100%;
+  background:transparent;
+  border:none;
+  outline:none;
+
+  color:white;
+  font-size:18px;
+
+}
+
+.search-box input::placeholder{
+  color:#9a9a9a;
+}
+
+/* =========================================
+   STATS
+========================================= */
+
+.stats{
+
+  padding:40px 8% 120px;
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+
+}
+
+.stat-box{
+
+  padding:40px;
+  border-radius:30px;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  backdrop-filter:blur(25px);
+
+  transition:0.4s;
+
+}
+
+.stat-box:hover{
+
+  transform:
+  translateY(-10px);
+
+  box-shadow:
+  0 0 40px rgba(66,133,244,0.15);
+
+}
+
+.stat-box h2{
+  font-size:60px;
+}
+
+.stat-box p{
+
+  margin-top:10px;
+  color:#bdbdbd;
+
+}
+
+/* =========================================
+   PRODUCTS
+========================================= */
+
+.products-section{
+  padding:120px 8%;
+}
+
+.section-title{
+
+  text-align:center;
+  font-size:60px;
+
+}
+
+.section-subtitle{
+
+  text-align:center;
+  color:#bdbdbd;
+
+  margin:20px auto 70px;
+  max-width:850px;
+
+  line-height:1.8;
+
+}
+
+.products-grid{
+
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+
+}
+
+/* =========================================
+   PREMIUM CARD
+========================================= */
+
+.card{
+
+  position:relative;
+  overflow:hidden;
+
+  border-radius:32px;
+  padding:35px;
+
+  backdrop-filter:blur(25px);
+
+  background:
+  linear-gradient(
+    rgba(255,255,255,0.06),
+    rgba(255,255,255,0.03)
+  ) padding-box,
+
+  linear-gradient(
+    135deg,
+    rgba(66,133,244,0.5),
+    rgba(234,67,53,0.5),
+    rgba(52,168,83,0.5)
+  ) border-box;
+
+  border:1px solid transparent;
+
+  box-shadow:
+  0 10px 40px rgba(0,0,0,0.3);
+
+  transition:
+  transform 0.2s ease,
+  box-shadow 0.4s ease;
+
+  transform-style:preserve-3d;
+
+  will-change:transform;
+
+}
+
+.card::before{
+
+  content:'';
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.08),
+    transparent
+  );
+
+  transform:translateX(-100%);
+  transition:1s;
+
+}
+
+.card:hover::before{
+  transform:translateX(100%);
+}
+
+
+.card:hover{
+
+  transform:
+  translateY(-12px)
+  scale(1.03);
+
+  box-shadow:
+  0 0 60px rgba(66,133,244,0.35),
+  0 0 120px rgba(52,168,83,0.12);
+
+}
+
+
+.product-logo{
+
+  width:75px;
+  height:75px;
+
+  background:white;
+
+  padding:12px;
+  border-radius:20px;
+
+  object-fit:contain;
+
+}
+
+.card h2{
+
+  margin-top:25px;
+  font-size:30px;
+
+}
+
+.category{
+
+  margin-top:10px;
+  color:#4285F4;
+  font-weight:600;
+
+}
+
+.description{
+
+  margin-top:16px;
+  color:#d5d5d5;
+  line-height:1.8;
+
+}
+
+.status{
+
+  display:inline-block;
+
+  margin-top:22px;
+  padding:10px 18px;
+
+  border-radius:999px;
+
+  background:
+  rgba(52,168,83,0.15);
+
+  color:#34A853;
+  font-size:14px;
+
+}
+
+/* =========================================
+   AI ASSISTANT
+========================================= */
+
+.ai-toggle{
+
+  position:fixed;
+  right:30px;
+  bottom:30px;
+
+  width:70px;
+  height:70px;
+
+  border-radius:50%;
+
+  background:
+  linear-gradient(
+    135deg,
+    #4285F4,
+    #34A853
+  );
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  z-index:9999;
+
+  box-shadow:
+  0 0 40px rgba(66,133,244,0.4);
+
+  animation:aiPulse 2s infinite;
+
+}
+
+@keyframes aiPulse{
+
+  0%{
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.08);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+
+}
+
+.ai-assistant{
+
+  position:fixed;
+
+  right:30px;
+  bottom:120px;
+
+  width:360px;
+  height:520px;
+
+  background:
+  rgba(255,255,255,0.06);
+
+  backdrop-filter:blur(30px);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  z-index:9999;
+
+  box-shadow:
+  0 0 40px rgba(66,133,244,0.18);
+
+  transform:
+  translateY(30px)
+  scale(0.9);
+
+  opacity:0;
+  visibility:hidden;
+
+  transition:0.4s;
+
+}
+
+.ai-assistant.active{
+
+  transform:
+  translateY(0)
+  scale(1);
+
+  opacity:1;
+  visibility:visible;
+
+}
+
+.ai-header{
+
+  padding:22px;
+
+  font-size:20px;
+  font-weight:700;
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.08);
+
+  background:
+  linear-gradient(
+    90deg,
+    #4285F4,
+    #34A853
+  );
+
+}
+
+.ai-messages{
+
+  height:360px;
+  overflow-y:auto;
+
+  padding:20px;
+
+}
+
+.ai-message{
+
+  padding:16px;
+  border-radius:18px;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  margin-bottom:15px;
+
+  line-height:1.7;
+
+  animation:fadeUp 0.4s ease;
+
+}
+
+.ai-input-box{
+
+  position:absolute;
+  bottom:0;
+
+  width:100%;
+
+  display:flex;
+  gap:10px;
+
+  padding:18px;
+
+  border-top:
+  1px solid rgba(255,255,255,0.08);
+
+}
+
+.ai-input-box input{
+
+  flex:1;
+
+  background:
+  rgba(255,255,255,0.05);
+
+  border:none;
+  outline:none;
+
+  color:white;
+
+  padding:14px;
+
+  border-radius:14px;
+
+}
+
+.ai-input-box button{
+
+  border:none;
+
+  padding:14px 18px;
+
+  border-radius:14px;
+
+  background:#4285F4;
+
+  color:white;
+
+  cursor:pointer;
+
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer{
+
+  padding:100px 20px;
+
+  text-align:center;
+
+  border-top:
+  1px solid rgba(255,255,255,0.08);
+
+  background:
+  rgba(255,255,255,0.03);
+
+}
+
+footer h2{
+  font-size:40px;
+}
+
+footer p{
+
+  margin-top:20px;
+  color:#bdbdbd;
+
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+.hidden{
+
+  opacity:0;
+  transform:translateY(80px);
+
+  transition:
+  opacity 1s ease,
+  transform 1s ease;
+
+}
+
+.universe-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:18px 34px;
+border-radius:22px;
+position:relative;
+overflow:hidden;
+text-decoration:none;
+font-weight:800;
+font-size:16px;
+letter-spacing:0.5px;
+color:white;
+
+background:
+linear-gradient(
+135deg,
+#4285f4,
+#7c3aed,
+#34a853
+);
+
+background-size:300% 300%;
+
+box-shadow:
+0 10px 35px rgba(66,133,244,0.35),
+0 0 50px rgba(124,58,237,0.25);
+
+transition:0.45s ease;
+
+animation:gradientMove 6s ease infinite;
+}
+
+.universe-btn span{
+position:relative;
+z-index:2;
+}
+
+.universe-btn::before{
+content:'';
+position:absolute;
+top:0;
+left:-120%;
+width:100%;
+height:100%;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,0.35),
+transparent
+);
+
+transition:0.8s;
+}
+
+.universe-btn:hover::before{
+left:120%;
+}
+
+.universe-btn:hover{
+
+transform:
+translateY(-6px)
+scale(1.04);
+
+box-shadow:
+0 20px 50px rgba(66,133,244,0.45),
+0 0 80px rgba(124,58,237,0.35);
+
+}
+
+.universe-btn:active{
+transform:scale(0.98);
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+.show{
+
+  opacity:1;
+  transform:translateY(0);
+
+}
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+    transform:translateY(40px);
+
+  }
+
+  to{
+
+    opacity:1;
+    transform:translateY(0);
+
+  }
+
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media(max-width:768px){
+
+  nav ul{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:55px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .section-title{
+    font-size:42px;
+  }
+
+  .ai-assistant{
+
+    width:92%;
+    right:4%;
+
+  }
+
+}
+
+
+.live-clock{
+
+position:fixed;
+top:20px;
+right:20px;
+
+padding:14px 22px;
+
+border-radius:18px;
+
+font-size:18px;
+font-weight:700;
+letter-spacing:2px;
+
+color:white;
+
+background:
+linear-gradient(
+135deg,
+rgba(66,133,244,0.25),
+rgba(124,58,237,0.25)
+);
+
+border:
+1px solid rgba(255,255,255,0.08);
+
+backdrop-filter:blur(20px);
+
+box-shadow:
+0 10px 40px rgba(66,133,244,0.2);
+
+z-index:99999;
+
+animation:pulseClock 2s infinite;
+
+}
+
+@keyframes pulseClock{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.03);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- LOADER -->
+
+<div class="loader" id="loader">
+  <h1>Google Universe</h1>
+</div>
+
+<!-- CURSOR -->
+
+<div class="cursor-glow"></div>
+
+<!-- BACKGROUND -->
+
+<div class="background">
+
+  <div class="circle circle1"></div>
+  <div class="circle circle2"></div>
+  <div class="circle circle3"></div>
+  <div class="circle circle4"></div>
+
+</div>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">
+
+    <span>G</span>
+    <span>o</span>
+    <span>o</span>
+    <span>gle Universe</span>
+
+  </div>
+
+  <ul>
+
+    <li><a href="#">Home</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#">AI</a></li>
+    <li><a href="#">Timeline</a></li>
+
+  </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+  <div class="hero-badge">
+    World's Most Advanced Google Product Archive
+  </div>
+
+  <h1>
+
+    Explore The
+
+    <span
+    class="gradient-text"
+    id="changingText">
+
+      Google Universe
+
+    </span>
+
+  </h1>
+
+  <p>
+
+    The ultimate premium encyclopedia of Google —
+    discover AI systems, cloud platforms, legendary
+    products, hidden experiments, hardware devices,
+    acquisitions, discontinued innovations, and the
+    future of technology.
+
+  </p>
+
+  <div class="hero-buttons">
+
+
+    <a href="google-universe.html" target="_blank" class="universe-btn">
+  <span>🌌 Open Google Universe</span>
+</a>
+
+
+</a>
+
+</div>
+
+  
+  <div class="search-box">
+
+    <input
+      type="text"
+      placeholder="Search Google products, AI tools, cloud systems..."
+      id="searchInput"
+    >
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+  <div class="stat-box hidden">
+    <h2>3000+</h2>
+    <p>Total Products</p>
+  </div>
+
+  <div class="stat-box hidden">
+    <h2>400+</h2>
+    <p>Active Products</p>
+  </div>
+
+  <div class="stat-box hidden">
+    <h2>2600+</h2>
+    <p>Archived Projects</p>
+  </div>
+
+  <div class="stat-box hidden">
+    <h2>2026</h2>
+    <p>Latest Database</p>
+  </div>
+
+</section>
+
+<!-- PRODUCTS -->
+
+<section class="products-section" id="products">
+
+  <h1 class="section-title">
+    Top Google Products
+  </h1>
+
+  <p class="section-subtitle">
+
+    Discover the most influential products
+    shaping the future of AI, cloud, search,
+    software, entertainment, and computing.
+
+  </p>
+
+  <div class="products-grid">
+
+    <!-- CARD -->
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Google-gemini-icon.svg" class="product-logo">
+      <h2>Gemini</h2>
+      <p class="category">Artificial Intelligence</p>
+      <p class="description">
+        Google's flagship multimodal AI system powering future computing.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Google_Chrome_icon_%282011%29.png" class="product-logo">
+      <h2>Chrome</h2>
+      <p class="category">Software</p>
+      <p class="description">
+        The world’s most popular browser with billions of users.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" class="product-logo">
+      <h2>YouTube</h2>
+      <p class="category">Entertainment</p>
+      <p class="description">
+        The largest creator and streaming ecosystem in history.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Android_robot.svg" class="product-logo">
+      <h2>Android</h2>
+      <p class="category">Mobile</p>
+      <p class="description">
+        The world’s most widely used mobile operating system.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Maps_icon_%282020%29.svg" class="product-logo">
+      <h2>Google Maps</h2>
+      <p class="category">Navigation</p>
+      <p class="description">
+        Real-time mapping and global navigation intelligence.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Google-firebase-logo.svg" class="product-logo">
+      <h2>Firebase</h2>
+      <p class="category">Cloud</p>
+      <p class="description">
+        Backend platform for modern web and mobile applications.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+  
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Pixel_logo.svg" class="product-logo">
+      <h2>Pixel</h2>
+      <p class="category">Hardware AI</p>
+      <p class="description">
+        Premium AI-powered smartphones designed fully by Google.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" class="product-logo">
+      <h2>Google Cloud</h2>
+      <p class="category">Cloud Computing</p>
+      <p class="description">
+        Enterprise-grade AI cloud infrastructure powering global businesses.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Google_Drive_logo.png" class="product-logo">
+      <h2>Google Drive</h2>
+      <p class="category">Storage</p>
+      <p class="description">
+        Cloud-based storage platform used by billions worldwide.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+    <div class="card hidden">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Google_Assistant_logo.svg" class="product-logo">
+      <h2>Google Assistant</h2>
+      <p class="category">Voice AI</p>
+      <p class="description">
+        AI voice assistant integrated across Google's ecosystem.
+      </p>
+      <span class="status">Active</span>
+    </div>
+
+
+  </div>
+
+</section>
+
+<!-- AI TOGGLE -->
+
+<div class="ai-toggle" id="aiToggle">
+  ✨
+</div>
+
+<!-- AI ASSISTANT -->
+
+<div class="ai-assistant" id="aiAssistant">
+
+  <div class="ai-header">
+    Google Universe AI
+  </div>
+
+  <div class="ai-messages" id="aiMessages">
+
+    <div class="ai-message">
+      Hello 👋 Ask me anything about Google products.
+    </div>
+
+  </div>
+
+  <div class="ai-input-box">
+
+    <input
+      type="text"
+      placeholder="Ask about Gemini, Android, DeepMind..."
+      id="aiInput"
+    >
+
+    <button id="aiSend">
+      Send
+    </button>
+
+  </div>
+
+</div>
+
+
+
+<!-- FLIPBOOK SECTION -->
+
+<section class="products-section" id="flipbook">
+
+  <h1 class="section-title">
+    Google Universe Flipbook
+  </h1>
+
+  <p class="section-subtitle">
+    Explore the complete interactive Google Universe digital flipbook experience.
+  </p>
+
+  <div style="
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    border-radius:30px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,0.08);
+    box-shadow:0 0 60px rgba(66,133,244,0.2);
+  ">
+
+    <iframe
+      src="https://heyzine.com/flip-book/fe0142ef5d.html"
+      width="100%"
+      height="700"
+      style="border:none;background:#000;"
+      allowfullscreen>
+    </iframe>
+
+  </div>
+
+  <div style="text-align:center;margin-top:35px;">
+
+    <a
+      href="https://heyzine.com/flip-book/fe0142ef5d.html"
+      target="_blank"
+      class="primary-btn">
+
+      Open Full Flipbook
+
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <h2>Google Universe</h2>
+
+  <p>
+    Premium Encyclopedia of Google's Complete Ecosystem
+  </p>
+
+</footer>
+
+<script>
+
+/* =========================================
+   LOADER
+========================================= */
+
+window.addEventListener('load',()=>{
+
+  setTimeout(()=>{
+
+    document
+    .getElementById('loader')
+    .classList.add('hide');
+
+  },1800);
+
+});
+
+/* =========================================
+   HERO TEXT ROTATION
+========================================= */
+
+const texts = [
+
+  'Google Universe',
+  'AI Ecosystem',
+  'Future Technology',
+  'DeepMind Systems',
+  'Cloud Intelligence',
+  'Future Of Computing'
+
+];
+
+let index = 0;
+
+setInterval(()=>{
+
+  document.getElementById(
+    'changingText'
+  ).innerText = texts[index];
+
+  index++;
+
+  if(index >= texts.length){
+    index = 0;
+  }
+
+},2500);
+
+/* =========================================
+   ULTRA ANIMATION ENGINE
+========================================= */
+
+const cursorGlow =
+document.querySelector('.cursor-glow');
+
+const circles =
+document.querySelectorAll('.circle');
+
+let mouseX =
+window.innerWidth / 2;
+
+let mouseY =
+window.innerHeight / 2;
+
+let currentX = mouseX;
+let currentY = mouseY;
+
+window.addEventListener('mousemove',(e)=>{
+
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+
+});
+
+function animate(){
+
+  currentX +=
+  (mouseX - currentX) * 0.08;
+
+  currentY +=
+  (mouseY - currentY) * 0.08;
+
+  cursorGlow.style.transform =
+  `translate(${currentX - 160}px, ${currentY - 160}px)`;
+
+  circles.forEach((circle,index)=>{
+
+    const speed =
+    (index + 1) * 0.015;
+
+    const x =
+    (window.innerWidth / 2 - currentX) * speed;
+
+    const y =
+    (window.innerHeight / 2 - currentY) * speed;
+
+    circle.style.transform =
+    `translate(${x}px, ${y}px)`;
+
+  });
+
+  requestAnimationFrame(animate);
+
+}
+
+animate();
+
+/* =========================================
+   CARD 3D EFFECT
+========================================= */
+
+const cards =
+document.querySelectorAll('.card');
+
+cards.forEach(card=>{
+
+  card.addEventListener('mousemove',(e)=>{
+
+    const rect =
+    card.getBoundingClientRect();
+
+    const x =
+    e.clientX - rect.left;
+
+    const y =
+    e.clientY - rect.top;
+
+    const centerX =
+    rect.width / 2;
+
+    const centerY =
+    rect.height / 2;
+
+    const rotateX =
+    (y - centerY) / 18;
+
+    const rotateY =
+    (centerX - x) / 18;
+
+    card.style.transform = `
+      perspective(1200px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale(1.04)
+    `;
+
+  });
+
+  card.addEventListener('mouseleave',()=>{
+
+    card.style.transform = `
+      perspective(1200px)
+      rotateX(0deg)
+      rotateY(0deg)
+      scale(1)
+    `;
+
+  });
+
+});
+
+/* =========================================
+   INTERSECTION REVEAL
+========================================= */
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+  entries.forEach(entry=>{
+
+    if(entry.isIntersecting){
+
+      entry.target.classList.add('show');
+
+    }
+
+  });
+
+},{
+  threshold:0.15
+});
+
+document
+.querySelectorAll('.hidden')
+.forEach(el=>{
+
+  observer.observe(el);
+
+});
+
+/* =========================================
+   LIVE SEARCH
+========================================= */
+
+const searchInput =
+document.getElementById('searchInput');
+
+searchInput.addEventListener('keyup',()=>{
+
+  const value =
+  searchInput.value.toLowerCase();
+
+  cards.forEach(card=>{
+
+    const text =
+    card.innerText.toLowerCase();
+
+    if(text.includes(value)){
+
+      card.style.display =
+      'block';
+
+    }
+
+    else{
+
+      card.style.display =
+      'none';
+
+    }
+
+  });
+
+});
+
+/* =========================================
+   AI TOGGLE
+========================================= */
+
+const aiToggle =
+document.getElementById('aiToggle');
+
+const aiAssistant =
+document.getElementById('aiAssistant');
+
+aiToggle.addEventListener('click',()=>{
+
+  aiAssistant.classList.toggle('active');
+
+});
+
+document
+.getElementById('openAI')
+.addEventListener('click',(e)=>{
+
+  e.preventDefault();
+
+  aiAssistant.classList.add('active');
+
+});
+
+
+/* =========================================
+   ULTRA AI SYSTEM
+========================================= */
+
+const aiInput =
+document.getElementById('aiInput');
+
+const aiSend =
+document.getElementById('aiSend');
+
+const aiMessages =
+document.getElementById('aiMessages');
+
+/* =========================================
+   TEXT TO SPEECH
+========================================= */
+
+function speak(text){
+
+  const speech =
+  new SpeechSynthesisUtterance(text);
+
+  speech.lang = 'en-US';
+
+  speech.rate = 1;
+
+  speech.pitch = 1;
+
+  speech.volume = 1;
+
+  const voices =
+  window.speechSynthesis.getVoices();
+
+  const premiumVoice =
+  voices.find(v =>
+    v.name.includes('Google')
+  );
+
+  if(premiumVoice){
+    speech.voice = premiumVoice;
+  }
+
+  window.speechSynthesis.speak(speech);
+
+}
+
+/* =========================================
+   KNOWLEDGE BASE
+========================================= */
+
+const aiKnowledge = {
+
+  gemini:
+  "Gemini is Google's most advanced AI system capable of understanding text, code, images, video and audio in real time.",
+
+  android:
+  "Android powers billions of smartphones globally and is the largest mobile operating system in history.",
+
+  chrome:
+  "Google Chrome is the world's most popular web browser focused on speed, security and AI integration.",
+
+  youtube:
+  "YouTube is the biggest video platform and creator ecosystem on Earth with billions of users.",
+
+  maps:
+  "Google Maps provides advanced navigation, satellite imaging and real-time traffic intelligence.",
+
+  firebase:
+  "Firebase helps developers build modern applications with realtime databases and cloud infrastructure.",
+
+  pixel:
+  "Google Pixel devices combine premium hardware with Google's latest AI technologies.",
+
+  deepmind:
+  "DeepMind is Google's advanced AI research division creating next generation intelligence systems.",
+
+  cloud:
+  "Google Cloud provides enterprise AI infrastructure, cloud computing and cybersecurity solutions."
+
+};
+
+/* =========================================
+   ADD MESSAGE
+========================================= */
+
+function addMessage(sender,text){
+
+  const message =
+  document.createElement('div');
+
+  message.className =
+  'ai-message';
+
+  message.innerHTML =
+  `
+  <strong>${sender}:</strong>
+  <br><br>
+  ${text}
+  `;
+
+  aiMessages.appendChild(message);
+
+  aiMessages.scrollTop =
+  aiMessages.scrollHeight;
+
+}
+
+/* =========================================
+   TYPING EFFECT
+========================================= */
+
+function typingAnimation(){
+
+  const typing =
+  document.createElement('div');
+
+  typing.className =
+  'ai-message';
+
+  typing.innerHTML =
+  `
+  <strong>Google Universe AI</strong>
+  <br><br>
+  Thinking...
+  `;
+
+  typing.style.opacity =
+  '0.7';
+
+  aiMessages.appendChild(typing);
+
+  aiMessages.scrollTop =
+  aiMessages.scrollHeight;
+
+  return typing;
+
+}
+
+/* =========================================
+   AI REPLY ENGINE
+========================================= */
+
+function generateReply(message){
+
+  message =
+  message.toLowerCase();
+
+  for(let key in aiKnowledge){
+
+    if(message.includes(key)){
+
+      return aiKnowledge[key];
+
+    }
+
+  }
+
+  if(
+    message.includes('hello') ||
+    message.includes('hi')
+  ){
+
+    return `
+    Hello 👋
+    Welcome to Google Universe.
+    Ask me about AI, Android,
+    DeepMind, Cloud, Pixel or
+    future technologies.
+    `;
+
+  }
+
+  if(
+    message.includes('best')
+  ){
+
+    return `
+    Google's most powerful products include
+    Gemini AI, YouTube, Android,
+    Google Cloud and Pixel AI devices.
+    `;
+
+  }
+
+  return `
+  Google is building the future of
+  artificial intelligence, robotics,
+  cloud computing and quantum systems.
+  `;
+
+}
+
+/* =========================================
+   SEND MESSAGE
+========================================= */
+
+function sendMessage(){
+
+  if(aiInput.value.trim() === '')
+  return;
+
+  const userText =
+  aiInput.value;
+
+  addMessage(
+    'You',
+    userText
+  );
+
+  aiInput.value='';
+
+  const typing =
+  typingAnimation();
+
+  setTimeout(()=>{
+
+    typing.remove();
+
+    const reply =
+    generateReply(userText);
+
+    addMessage(
+      'Google Universe AI',
+      reply
+    );
+
+    speak(reply);
+
+  },1200);
+
+}
+
+/* =========================================
+   BUTTON EVENTS
+========================================= */
+
+aiSend.addEventListener(
+'click',
+sendMessage
+);
+
+aiInput.addEventListener(
+'keypress',
+(e)=>{
+
+  if(e.key === 'Enter'){
+
+    sendMessage();
+
+  }
+
+});
+
+/* =========================================
+   VOICE RECOGNITION
+========================================= */
+
+const SpeechRecognition =
+window.SpeechRecognition ||
+window.webkitSpeechRecognition;
+
+if(SpeechRecognition){
+
+  const recognition =
+  new SpeechRecognition();
+
+  recognition.continuous =
+  false;
+
+  recognition.lang =
+  'en-US';
+
+  recognition.interimResults =
+  false;
+
+  const micBtn =
+  document.createElement('button');
+
+  micBtn.innerHTML =
+  '🎤';
+
+  micBtn.style.background =
+  'linear-gradient(135deg,#4285F4,#34A853)';
+
+  micBtn.style.color =
+  'white';
+
+  micBtn.style.border =
+  'none';
+
+  micBtn.style.padding =
+  '14px 18px';
+
+  micBtn.style.borderRadius =
+  '14px';
+
+  micBtn.style.cursor =
+  'pointer';
+
+  document
+  .querySelector('.ai-input-box')
+  .appendChild(micBtn);
+
+  micBtn.addEventListener(
+  'click',
+  ()=>{
+
+    recognition.start();
+
+    micBtn.innerHTML =
+    '🎙️';
+
+    micBtn.style.transform =
+    'scale(1.1)';
+
+  });
+
+  recognition.addEventListener(
+  'result',
+  (e)=>{
+
+    const transcript =
+    e.results[0][0].transcript;
+
+    aiInput.value =
+    transcript;
+
+    sendMessage();
+
+  });
+
+  recognition.addEventListener(
+  'end',
+  ()=>{
+
+    micBtn.innerHTML =
+    '🎤';
+
+    micBtn.style.transform =
+    'scale(1)';
+
+  });
+
+}
+
+/* =========================================
+   AI WELCOME
+========================================= */
+
+window.addEventListener('load',()=>{
+
+  setTimeout(()=>{
+
+    const welcome =
+    `
+    Welcome to Google Universe.
+    Explore the future of artificial intelligence.
+    `;
+
+    speak(welcome);
+
+  },2500);
+
+});
+
+
+  recognition.addEventListener(
+  'result',
+  (e)=>{
+
+    aiInput.value =
+    e.results[0][0].transcript;
+
+    sendMessage();
+
+  });
+
+  recognition.addEventListener(
+  'end',
+  ()=>{
+
+    micBtn.innerHTML =
+    '🎤';
+
+  });
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
